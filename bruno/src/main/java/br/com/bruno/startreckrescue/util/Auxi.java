@@ -12,7 +12,7 @@ public class Auxi {
 		return (Math.round(numero));
 		
 	}
-	
+	 
 	public static boolean verificaRange(int eixoX) {
 		if (eixoX < 1 || eixoX > size) {
 			return false;
@@ -26,9 +26,9 @@ public class Auxi {
 		return"\n Foram uttilizados " + Auxi.count + "sinalizadores \n";
 	}
 	
-	public static void mostraMapa(String[][] malha) {
+	public static String mostraMapa(String[][] malha) {
 
-		/*String r = null;
+		String r = null;
 		
 		System.out.format("     ");
 		r = "     ";
@@ -55,9 +55,9 @@ public class Auxi {
 		}
 		
 		return r;
-	}*/
+	}
 		
-		System.out.format("     ");
+		/*System.out.format("     ");
 		for (int i = 0; i < malha.length; i++) {
 			System.out.format("%3d",i+1);
 		}
@@ -72,7 +72,7 @@ public class Auxi {
 			}
 
 			System.out.println();
-		}
-	}
+		}*/
+	
 
 }

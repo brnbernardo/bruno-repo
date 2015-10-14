@@ -32,14 +32,14 @@ public class StarTrekResource {
 		int yInt = Integer.parseInt(y);
 		int contador = 0;
 		if (aux.verificaRange(xInt) == false){
-			
+			 
 		}
 		else if (aux.verificaRange(yInt) == false){
 			
 		}
 		else{
 			
-			do {
+			/*do {
 				if (getStarTrekFacade().encontraTripulante(Auxi.malha, xInt, yInt)) {
 					Auxi.mostraMapa(Auxi.malha);
 					contador++;
@@ -47,15 +47,15 @@ public class StarTrekResource {
 					Auxi.count++;
 					Auxi.mostraMapa(Auxi.malha);
 				}
-			} while (contador < Auxi.numJogadas);
+			} while (contador < Auxi.numJogadas);*/
 		
-			/*while (getStarTrekFacade().encontraTripulante(Auxi.malha, xInt, yInt) == false){
-				getStarTrekFacade().setX();
-				getStarTrekFacade().setY();
-			}*/
+			while (getStarTrekFacade().encontraTripulante(Auxi.malha, xInt, yInt) == false){
+				contador++;
+			}
 		}
-		//r = Auxi.mostraMapa(Auxi.malha);
-		return Auxi.exibeMapaFinal();
+		r = Auxi.mostraMapa(Auxi.malha);
+		return r;
+		//return Auxi.exibeMapaFinal();
 	}
 	
 	

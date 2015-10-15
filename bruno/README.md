@@ -2,7 +2,7 @@
 
 ## Como rodar ? ##
 
-* Para rodar o projeto será necessário JDK 7 or higher, Maven 2.x e JBoss 7.0.
+* Para rodar o projeto será necessário JDK 7 ou superior, Maven 2.x e JBoss 7.0.
 
 * ## Estruturação do projeto ##
 

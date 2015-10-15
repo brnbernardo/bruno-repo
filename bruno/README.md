@@ -1,35 +1,19 @@
-# Java EE 7 - Angular - Sample Application #
+# Star Trek Rescue #
 
-## How to run ? ##
+## Como rodar ? ##
 
-* You need JDK 7 or higher, Maven 3 and Wildfly 8 or Glassfish 4.1 to run the application.
+* Para rodar o projeto será necessário JDK 7 or higher, Maven 2.x e JBoss 7.0.
 
-* Build the code using Maven with the command: `mvn clean install`.
+* ## Estruturação do projeto ##
 
-* ## Deploy in the Wildfly 8 ##
-
-  * Copy the file javaee7-angular-3.2.war from target directory to your Wildfly installation folder /standalone/deployments
-
-  * Start Wildfly 8 and go to http://localhost:8080/javaee7-angular-3.2/
-
-* ## Deploy in the Glassfish 4.1 ##
-
-  * Open Admin Console (http://localhost:8484/)
+  * O projeto está estruturado a partir do padrão MVC.
   
-  * Go to menu "Application" 
+  * Foram usados o Facade e DAO também.  
   
-  * In the button "Deploy..." select the file javaee7-angular-3.2.war
-   
-  * Go to http://localhost:8080/javaee7-angular-3.2/
+  * Foi usado o framework RestEasy, que recebe a requisição pelo GET e assim chamando as outras camadas.
+  
+  * A parte web foi usado AngularJs, JavaScript e CSS.
 
-## Javascript Package Management (optional) ##
 
-* The required JS libraries are included in the project, but it also possible to manage them with the next steps.
 
-* You need NPM. Please go to http://nodejs.org/download/ to get a copy.
 
-* Once NPM is installed run the command `npm install`.
-
-* Install Grunt `npm install -g grunt-cli`  for more information please go to http://gruntjs.com/getting-started.
-
-* Run the command 'grunt' to download all the web dependencies and build an optimized version of the project.

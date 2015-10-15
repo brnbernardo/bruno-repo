@@ -25,7 +25,7 @@ public class Auxi {
 	public static String exibeMapaFinal() {
 		return"\n Foram uttilizados " + Auxi.count + "sinalizadores \n";
 	}
-	
+
 	public static String mostraMapa(String[][] malha) {
 
 		String r = null;
@@ -39,7 +39,7 @@ public class Auxi {
 		}
 		System.out.println();
 		System.out.println("-------------------------------------------------------------");
-		r += "\n\n-------------------------------------------------------------\n\n";
+		r += "<br>-------------------------------------------------------------<br>";
 		
 		for (int i = 0; i < malha.length; i++) {
 			System.out.format("%3da - ", (i + 1));
@@ -51,28 +51,10 @@ public class Auxi {
 			}
 				
 			System.out.println();
-			r += "\n\n";
+			r += "<br>";
 		}
 		
 		return r;
 	}
 		
-		/*System.out.format("     ");
-		for (int i = 0; i < malha.length; i++) {
-			System.out.format("%3d",i+1);
-		}
-		System.out.println();
-		System.out.println("-------------------------------------------------------------");
-		
-		for (int i = 0; i < malha.length; i++) {
-			System.out.format("%3da - ", (i + 1));
-			for (int j = 0; j < malha.length; j++) {
-				malha[j][i] = malha[j][i] == null ? " " : malha[j][i];
-				System.out.format("%-1.8s  ",malha[j][i] );
-			}
-
-			System.out.println();
-		}*/
-	
-
 }

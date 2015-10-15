@@ -14,24 +14,7 @@ public class StarTrekDAO implements Serializable {
 	private Coordenada coordenada;
 
 	public StarTrekDAO() {
-
-		/*if (coordenada == null) {
-			coordenada = new Coordenada(Auxi.geraAleatorio(),
-					Auxi.geraAleatorio());
-		}*/
-
 	}
-
-	
-	
-/*	public static Coordenada getCoordenada() {
-		return coordenada;
-	}
-
-	public static void geraCoordenada() {
-		coordenada = new Coordenada(Auxi.geraAleatorio(),
-				Auxi.geraAleatorio());
-	}*/
 
 	public boolean encontraTripulante(String[][] mapaDaRegiao, int eixoX,
 			int eixoY) {
@@ -50,13 +33,11 @@ public class StarTrekDAO implements Serializable {
 					Auxi.geraAleatorio());
 			return true;
 		} else if (verificaTripulanteProximo(eixoX, eixoY)) { // fazer uma
-			// sala = new TripulanteProximo();
 			coordenada.setSala(new TripulanteProximo());
 			coordenada.setMapa(coordenada.getSala().mapeiaPosicao(mapaDaRegiao,
 					coordenada, eixoX, eixoY));
 			return false;
 		} else {
-			// sala = new TripulantePerdido();
 			coordenada.setSala(new TripulantePerdido());
 			coordenada.setMapa(coordenada.getSala().mapeiaPosicao(mapaDaRegiao,
 					coordenada, eixoX, eixoY));

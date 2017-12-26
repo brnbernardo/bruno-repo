@@ -10,9 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TesteSelenium {
 
@@ -25,13 +23,13 @@ public class TesteSelenium {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//testandoCorporativoService();
+		// testandoCorporativoService();
 	}
 
 	@Test
 	public static void testandoCorporativoService() {
 
-		//System.setProperty("webdriver.chrome.driver", "/d:/chromedriver.exe");
+		// System.setProperty("webdriver.chrome.driver", "/d:/chromedriver.exe");
 
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://localhost:8080/CorporativoService");
@@ -88,7 +86,7 @@ public class TesteSelenium {
 		driver.get("chrome-extension://innpjfdalfhpcoinfnehdnbkglpmogdi/options.html");
 		driver.navigate().refresh();
 		Thread.sleep(1000);
-		
+
 		driver.findElement(By.xpath("//button[@tooltip='Add New']")).click();
 
 		WebElement actionElem = driver.findElement(By.name("action"));
@@ -107,10 +105,36 @@ public class TesteSelenium {
 
 		driver.findElement(By.xpath("//button[@tooltip='Start Modifying Headers']")).click();
 		Thread.sleep(1000);
-		
+
 		driver.findElement(By.xpath("//button[@tooltip='Enable']")).click();
 		Thread.sleep(2000);
-		
+
+		montarMapHeader(headersValues, driver);
+
+		driver.get("http://localhost:8080/CorporativoService");
+
+		List<WebElement> list = driver.findElements(By.className("container"));
+		Thread.sleep(2000);
+
+		for (WebElement element : list) {
+
+			WebElement we = element.findElement(By.xpath(".//*[@id='negocio']"));
+			if (we.isDisplayed()) {
+				we.sendKeys("24802443");
+			}
+
+		}
+		WebElement buttonBuscar = driver.findElement(By.cssSelector("button[type='button'"));
+		buttonBuscar.click();
+
+		Thread.sleep(30000); // Let the user actually see something!
+		driver.close();
+		driver.quit();
+
+	}
+
+	private static void montarMapHeader(Map<String, String> headersValues, WebDriver driver)
+			throws InterruptedException {
 		
 		int i = 2;
 		for (Map.Entry<String, String> entry : headersValues.entrySet()) {
@@ -128,49 +152,15 @@ public class TesteSelenium {
 
 			WebElement desc = driver.findElement(By.name("description"));
 			desc.sendKeys("empty");
-/*
-			WebDriverWait wait = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@tooltip='Save']")));
-*/
+
 			String id = "btn_save_" + i++;
-			
-//			
-			//WebElement teste = driver.findElement(By.xpath("//button[@id='" + id + "']"));
-			
+
 			driver.findElement(By.xpath("//button[@id='" + id + "']")).click();
 			Thread.sleep(1000);
-
-			//WebElement teste = driver.findElement(By.xpath("//button[@tooltip='Start Modifying Headers']"));
-			
 
 			driver.findElement(By.xpath("//button[@tooltip='Enable']")).click();
 			Thread.sleep(2000);
 		}
-
-		// driver.get("http://whatheaders.com");
-		
-		driver.get("http://localhost:8080/CorporativoService");
-
-		//WebElement inputLocalidade = driver.findElement(By.xpath("//div[@class='filtro']/div"));
-		//WebElement inputLocalidade = driver.findElement(By.cssSelector("#negocio"));
-		List<WebElement> list = driver.findElements(By.className("container"));
-		Thread.sleep(2000);
-		//inputLocalidade.sendKeys("24802443");
-		for (WebElement element:list) {
-		
-			WebElement we =  element.findElement(By.xpath(".//*[@id='negocio']"));
-			if (we.isDisplayed()) {
-				we.sendKeys("24802443");
-			}
-			
-		}
-		WebElement buttonBuscar = driver.findElement(By.cssSelector("button[type='button'"));
-		buttonBuscar.click();
-		
-		Thread.sleep(30000); // Let the user actually see something!
-		driver.close();
-		driver.quit();
-
 	}
 
 }
